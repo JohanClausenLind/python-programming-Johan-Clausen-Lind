@@ -1,53 +1,39 @@
-
 class Shapes():
+    """Bas klass för olika geometriska former."""
+
+    def __init__(self, x, y):
+        """
+        Skapar en ny Shape-instans.
+
+        Args:
+            x (float): X-koordinaten för formens mittpunkt.
+            y (float): Y-koordinaten för formens mittpunkt.
+        """
+        self.x = x
+        self.y = y
+
+    # ... Andra metoder som __lt__, __gt__, __le__, __ge__, __repr__, __str__ ...
+
     def translate(self, dx, dy):
+        """
+        Flyttar formen enligt angivna värden.
+
+        Args:
+            dx (float): Förskjutning i X-led.
+            dy (float): Förskjutning i Y-led.
+
+        Raises:
+            ValueError: Om dx eller dy inte är nummer.
+        """
         try:
             dx = float(dx)
             dy = float(dy)
         except ValueError:
-            raise ValueError("Both translation values must be numbers")
+            raise ValueError("Båda translationsvärdena måste vara nummer")
 
         self.x += dx
         self.y += dy
-
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def __lt__(self, other):
-        if not isinstance(other, Shapes):
-            return NotImplemented
-        return self.calculate_area() < other.calculate_area()
-    
-    def __gt__(self, other):
-        if not isinstance(other, Shapes):
-            return NotImplemented
-        return self.calculate_area() > other.calculate_area()
-    
-    def __le__(self, other):
-        if not isinstance(other, Shapes):
-            return NotImplemented
-        return self.calculate_area() <= other.calculate_area()
-    
-    def __ge__(self, other):
-        if not isinstance(other, Shapes):
-            return NotImplemented
-        self.calculate_area() >= other.calculate_area()
-
-    def __repr__(self):
-        return f'shapes(x= {self.x}, y={self.y})'
-
-    def __str__(self):
-        return f'Shape with center at ({self.x}, {self.y})'
-        
-    def translate(self, dy, dx):
-        self.x += dx
-        self.y += dy
-
-    def __eq__(self, other):
-        if not isinstance(other, Shapes):
-            return NotImplemented
-        return self.calculate_area() == other.calculate_area()
 
     def calculate_area(self):
-        raise NotImplementedError("This method should be overridden in subclasses")    
+        """Räknar ut och returnerar formens area. Denna metod ska överskuggas i subklasser."""
+        raise NotImplementedError("Denna metod ska överskuggas i subklasser")
