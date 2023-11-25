@@ -33,3 +33,6 @@ class Rectangle(Shapes):
         centerY = self.y + (self.length / 2)
         return {centerX, centerY}
     
+    def is_point_inside(self, px, py):
+        # Assuming (x, y) is the top-left corner of the rectangle
+        return self.x <= px <= self.x + self.width and self.y <= py <= self.y + self.length
