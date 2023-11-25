@@ -44,6 +44,10 @@ class Shapes():
         self.x += dx
         self.y += dy
 
-    def is_point_inside(self, dx, dy):
-        return self.x >= dx >= 0 and (self.y >= dy >= 0)
-    
+    def __eq__(self, other):
+        if not isinstance(other, Shapes):
+            return NotImplemented
+        return self.calculate_area() == other.calculate_area()
+
+    def calculate_area(self):
+        raise NotImplementedError("This method should be overridden in subclasses")    
