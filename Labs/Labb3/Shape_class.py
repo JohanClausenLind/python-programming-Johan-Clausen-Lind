@@ -24,4 +24,15 @@ class Shapes():
             return NotImplemented
         self.calculate_area() >= other.calculate_area()
 
-   
+    def __repr__(self):
+        return f'shapes(x= {self.x}, y={self.y})'
+
+    def __str__(self):
+        return f'Shape with center at ({self.x}, {self.y})'
+        
+    def translate(self, dy, dx):
+        self.x += dx
+        self.y += dy
+
+    def is_point_inside(self, dx, dy):
+        return self.x >= dx >= 0 and (self.y >= dy >= 0)
