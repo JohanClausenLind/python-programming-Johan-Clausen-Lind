@@ -1,10 +1,17 @@
 from Shape_class import Shapes
-class Rectangle(Shapes):
 
+class Rectangle(Shapes):
     def __init__(self, x, y, length, width):
-        super().__init__(x, y)
-        self.length = length
-        self.width = width
+        try:
+            self.x = float(x)
+            self.y = float(y)
+            self.length = float(length)
+            self.width = float(width)
+            if self.length <= 0 or self.width <= 0:
+                raise ValueError("Length and width must be greater than 0")
+        except ValueError as e:
+            print(f"Invalid value for rectangle: {e}")
+            raise
 
     def __repr__(self):
         return f"rektangle x={self.x}, y={self.y}, length={self.length}, width={self.width}"

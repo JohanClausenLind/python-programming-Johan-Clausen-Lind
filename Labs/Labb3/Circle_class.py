@@ -2,8 +2,15 @@ from Shape_class import Shapes
 
 class Circle(Shapes):
     def __init__(self, x, y, radius):
-        super().__init__(x, y)
-        self.radius = radius
+        try:
+            self.x = float(x)
+            self.y = float(y)
+            self.radius = float(radius)
+            if self.radius <= 0:
+                raise ValueError("Radius must be greater than 0")
+        except ValueError as e:
+            print(f"Invalid value for circle: {e}")
+            raise
 
     def __repr__(self):
         return f"Circle(x={self.x}, y={self.y}, radius={self.radius})"
