@@ -16,3 +16,9 @@ class Circle(Shapes):
         
     def is_unit_circle(self):
         return self.radius == 1
+
+    def calculate_area(self):
+        return int(3.14 * self.radius ** 2)
+
+    def calculate_perimeter(self):
+        return int(2 * 3.14 * self.radius)
