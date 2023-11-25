@@ -10,3 +10,9 @@ class Circle(Shapes):
 
     def __str__(self):
         return f"Circle with radius {self.radius} at center ({self.x}, {self.y})"
+ 
+    def get_center(self):
+        return {self.x, self.y}
+        
+    def is_unit_circle(self):
+        return self.radius == 1
