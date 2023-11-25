@@ -1,5 +1,15 @@
 
 class Shapes():
+    def translate(self, dx, dy):
+        try:
+            dx = float(dx)
+            dy = float(dy)
+        except ValueError:
+            raise ValueError("Both translation values must be numbers")
+
+        self.x += dx
+        self.y += dy
+
     def __init__(self, x, y):
         self.x = x
         self.y = y
@@ -36,15 +46,4 @@ class Shapes():
 
     def is_point_inside(self, dx, dy):
         return self.x >= dx >= 0 and (self.y >= dy >= 0)
-    class Shapes():
-    # ... existing methods ...
-
-    def translate(self, dx, dy):
-        try:
-            dx = float(dx)
-            dy = float(dy)
-        except ValueError:
-            raise ValueError("Both translation values must be numbers")
-
-        self.x += dx
-        self.y += dy
+    

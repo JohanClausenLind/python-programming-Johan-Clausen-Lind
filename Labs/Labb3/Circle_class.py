@@ -29,3 +29,7 @@ class Circle(Shapes):
 
     def calculate_perimeter(self):
         return int(2 * 3.14 * self.radius)
+
+    def is_point_inside(self, px, py):
+        distance = ((self.x - px) ** 2 + (self.y - py) ** 2) ** 0.5
+        return distance <= self.radius
